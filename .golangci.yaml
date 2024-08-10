@@ -1,0 +1,51 @@
+linters-settings:
+  golint:
+    min-confidence: 0.8
+
+  govet:
+    check-shadowing: true
+
+  gocyclo:
+    min-complexity: 10
+
+  misspell:
+    locale: US
+
+  ineffassign:
+    false-positives:
+      - "foo"
+
+  deadcode:
+    skip-generated: true
+
+linters:
+  enable:
+    - govet
+    - errcheck
+    - staticcheck
+    - gosimple
+    - unused
+    - structcheck
+    - varcheck
+    - ineffassign
+    - deadcode
+    - gofmt
+    - goimports
+    - gocyclo
+    - golint
+    - misspell
+
+run:
+  timeout: 3m
+  skip-dirs:
+    - vendor
+    - third_party
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
+  exclude-use-default: false
+  include:
+    - '^pkg/.*$'
+  exclude:
+    - 'common/.*'
